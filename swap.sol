@@ -45,16 +45,17 @@ contract Swap {
         uint rate = _amount/100 * 2;
         _amount = _amount + rate;
 
-        _seller.transfer(address(this).balance);
+        _token1.transfer(address(this).balance);
     }
 
 
-    function acceptSwap(uint index) external returns(bool) {
+   function acceptSwap(uint index) external returns(bool) {
         require(msg.sender == buyer, "Only Seller can call");
         require(msg.sender === onlyOwner, "NOT OWNER!")
 
         orderBook[index]
-        return accept;
+        
+        buyer.transferFrom(_buyer, arbiter, amount);
     }
 
     function releaseToken() {
